@@ -1,0 +1,39 @@
+
+.form-fonepay .form-fonepay {
+    color: var(--font-light);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-fonepay {
+    width: 40%;
+    padding: 5%;
+    flex-wrap: wrap;
+    /* margin: 0 -16px; */
+    margin-top: 0%;
+    margin-left: 0%;
+
+    /* background-color: black; */
+}
+
+.form-fonepay {
+    background: rgb(205, 159, 159);
+}
+.form-fonepay input {
+    border: 0;
+    width: 74%;
+    color: var(--font-light);
+    padding: 0 4%;
+}
+
+.form-fonepay input {
+    margin-bottom: 15px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    color: #4b483f;
+}

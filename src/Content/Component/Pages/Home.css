@@ -1,0 +1,241 @@
+/* .bike img {
+    width: 80%;
+    transition: 1s;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.bike img:hover {
+    transform: scale(1.1);
+    z-index: 2;
+} */
+
+/* .products {
+    position: relative;
+    width: 200px;
+    height: 0%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 30px 20px;
+    border-radius: 10px;
+    transition: .3s;
+ 
+
+}
+
+.slide-container h1 {
+    text-align: center;
+} */
+
+.homebtn {
+    padding: 15px 50px;
+    margin: 20px 20px 0 0;
+    border-radius: 50px;
+    border: none;
+    background: #03a9f5;
+    color: aliceblue;
+}
+
+.homebtn a {
+    color: aliceblue;
+    list-style: none;
+    text-decoration: none;
+}
+
+.homebtn:hover {
+    transform: scale(1.1);
+}
+
+.latest {
+    /* margin-top: 100px; */
+}
+
+.mtop {
+    /* margin-top: 50px; */
+}
+
+.heading {
+    text-align: center;
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.heading h1 {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.heading button {
+    padding: 15px 70px;
+    font-weight: bold;
+    position: absolute;
+    left: 42%;
+    font-size: 15px;
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px;
+}
+
+.font-head h2 {
+    color: #f9f9f9;
+}
+
+.latest .scontainer {
+    padding: 50px;
+    text-align: center;
+    /* background-color: #0abcf9;
+background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%); */
+    /* background-color: #2234ae;
+background-image: linear-gradient(315deg, #f3f3f3 0%, #05055d 54%); */
+    /* background-color: #2234ae;
+background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%); */
+    background: linear-gradient(0deg, #03a9f5 0%, #0e3959 30%, rgb(2, 9, 46) 30%, #0e2e3d 100%);
+}
+
+.latest .sbox {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid rgb(0, 0, 255);
+    border-radius: 10px;
+    transition: 0.5s;
+    width: 135%;
+
+}
+
+.latest .sbox:hover {
+    border: 1px solid rgb(72, 72, 251);
+    cursor: pointer;
+}
+
+.latest .bike {
+    position: relative;
+}
+
+.latest .bike .flex1 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.latest .bike label {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    color: #f9f9f9;
+    background: blue;
+    text-align: center;
+}
+
+.bike img {
+    width: 80%;
+    transition: 1s;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 992px) {
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100px;
+    }
+
+    .font-head h2 {
+        color: #f9f9f9;
+        padding: 20px;
+    }
+
+    .latest .scontainer {
+        padding: 10px;
+        text-align: center;
+        background: linear-gradient(0deg, #03a9f5 0%, #0e3959 30%, rgb(2, 9, 46) 30%, #0e2e3d 100%);
+    }
+
+    .latest .sbox {
+        background: #f9f9f9;
+        padding: 20px;
+        border: 1px solid rgb(0, 0, 255);
+        border-radius: 10px;
+        transition: 0.5s;
+        width: 135%;
+
+    }
+    Slide img{
+        width:max-content;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+
+    .font-head h2 {
+        color: #f9f9f9;
+    }
+
+    .latest .scontainer {
+        padding: 0px;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 300px;
+        }
+
+        .font-head h2 {
+            color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .latest .scontainer {
+            padding: 70px;
+            background: linear-gradient(0deg, #03a9f5 0%, #0e3959 30%, rgb(2, 9, 46) 30%, #0e2e3d 100%);
+        }
+
+        .latest .sbox {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid rgb(0, 0, 255);
+            border-radius: 10px;
+            transition: 0.5s;
+            width: 135%;
+
+        }
+
+     
+    }
+
+    .latest .sbox {
+        background: #f9f9f9;
+        padding: 10px;
+        border: 1px solid rgb(0, 0, 255);
+        border-radius: 10px;
+        transition: 0.5s;
+        width: 100%;
+        margin-right: 0rem;
+
+    }
+
+    .homebtn {
+        padding: 5px 40px;
+        margin: 20px 20px;
+        border-radius: 30px;
+        border: none;
+        background: #03a9f5;
+        color: aliceblue;
+    }
+    Slide{
+        width: 200%;
+    }
+}
+@media screen and (max-width: 300px) {
+
+    
+}
