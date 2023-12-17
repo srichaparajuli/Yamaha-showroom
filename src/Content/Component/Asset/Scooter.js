@@ -54,13 +54,19 @@ function Scooter() {
     <>
       <div>
         <div>
-          <div className="Scooter-header">
-            <img src="./images/motorcycle.jpg" className="" />
-            <label>Scooter</label>
-            <span>
-              Don't limit yourself—have the courage to take on new challenges.
-            </span>
+        <div class="page-header" data-aos="fade-down">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h2>Scooter</h2>
+              </div>
+              <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Scooter</a>
+              </div>
+            </div>
           </div>
+        </div>
           <div class="custom-manage">
             <select name="category" onChange={handleChange}>
               <option value="0">Price Filtering</option>
@@ -69,9 +75,9 @@ function Scooter() {
             </select>
           </div>
 
-          <div className="BikeTop ">
+          <div className="BikeTop" >
             {productData.map((data, index) => (
-              <div className="product" key={index}>
+              <div className="product" key={index}  data-aos="flip-right"  data-aos-duration="2000">
                 <div className="bikes">
                   <Link to={`/SingleProduct/${data.id}`}>
                     <img
@@ -90,7 +96,7 @@ function Scooter() {
                 </div>
                 <div classname="book">
                   <button className="bay">
-                    <Link to={`/SingleProduct/${data.id}`}>Book Now</Link>
+                    <Link to={`/SingleProduct/${data.id}`}>Test Ride</Link>
                   </button>
                 </div>
               </div>

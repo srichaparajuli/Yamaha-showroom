@@ -1,33 +1,165 @@
-/* .bike img {
-    width: 80%;
-    transition: 1s;
-    margin-left: 15px;
-    margin-top: 10px;
-}
+.back-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .back-to-top-button.visible {
+    display: block;
+  }
 
-.bike img:hover {
-    transform: scale(1.1);
-    z-index: 2;
-} */
 
-/* .products {
+.carousel {
     position: relative;
-    width: 200px;
-    height: 0%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 30px 20px;
-    border-radius: 10px;
-    transition: .3s;
- 
-
+    /* width: 100%;
+    height: calc(100vh - 170px); */
+    /* min-height: 400px; */
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
 }
 
-.slide-container h1 {
-    text-align: center;
-} */
+.carousel .carousel-inner,
+.carousel .carousel-item {
+    position: relative;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.carousel .carousel-item img {
+    max-width: 100%;
+    height: auto;
+   
+}
+
+.carousel .carousel-item::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1;
+}
+
+.carousel .carousel-caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 170px);
+    min-height: 400px;
+}
+
+.carousel .carousel-caption p {
+    color: #ffffff;
+    font-size: 30px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.carousel .carousel-caption h1 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.carousel .carousel-caption .btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    transition: .3s;
+}
+
+.carousel .carousel-caption .btn:hover {
+    color: #030f27;
+    background: #fdbe33;
+    border-color: #fdbe33;
+}
+
+@media (max-width: 767.98px) {
+
+    .carousel .carousel-item img {
+max-width: 100%;
+height: auto;
+    }
+    .carousel .carousel-caption h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .carousel .carousel-caption p {
+        font-size: 20px;
+    }
+
+    .carousel .carousel-caption .btn {
+        padding: 12px 30px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .carousel .carousel-caption h1 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .carousel .carousel-caption p {
+        font-size: 16px;
+    }
+
+    .carousel .carousel-caption .btn {
+        padding: 10px 25px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
+}
+
+.carousel .animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+
+
+.wrappeaward {
+	width: 80%;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 30px;
+}
+.wrappeaward  img {
+	width: 100%;
+	cursor: pointer;
+	transition: 1s ease;
+}
+.wrappeaward  img:hover {
+	transform: scale(0.9);
+}
+
+
 
 .homebtn {
     padding: 15px 50px;
@@ -50,6 +182,8 @@
 
 .latest {
     /* margin-top: 100px; */
+    /* margin-bottom:
+    40px; */
 }
 
 .mtop {
@@ -89,14 +223,10 @@
 .latest .scontainer {
     padding: 50px;
     text-align: center;
-    /* background-color: #0abcf9;
-background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%); */
-    /* background-color: #2234ae;
-background-image: linear-gradient(315deg, #f3f3f3 0%, #05055d 54%); */
-    /* background-color: #2234ae;
-background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%); */
+
     background: linear-gradient(0deg, #03a9f5 0%, #0e3959 30%, rgb(2, 9, 46) 30%, #0e2e3d 100%);
 }
+
 
 .latest .sbox {
     background: #f9f9f9;
@@ -138,6 +268,17 @@ background-image: linear-gradient(315deg, #2234ae 0%, #191714 74%); */
     transition: 1s;
     margin-left: 15px;
     margin-top: 10px;
+}
+
+.showroom-video{
+
+}
+video{
+    object-fit: cover;
+    width: 100%;
+    height: 50vh;
+    border: 2px solid gainsboro;
+   
 }
 
 @media screen and (max-width: 992px) {

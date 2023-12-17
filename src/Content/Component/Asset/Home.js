@@ -7,6 +7,10 @@ import About from "./About";
 import { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
+import "swiper/css/free-mode";
+
+// import "bootstrap/dist/css/bootstrap.min.css"
+import { FreeMode } from "swiper";
 import "../Pages/Home.css";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -16,7 +20,7 @@ import { MdEmail } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 //import videoPlayer from "react-video-js-player";
-import showroom from "../video/video1.mp4";
+import showroom from "../video/showroomvideo.mp4";
 
 const divStyle = {
   display: "flex",
@@ -161,67 +165,112 @@ const Home = () => {
       video.src =  video1;
     });
   });
+
+
+ 
+    const [isVisible, setIsVisible] = useState(false);
+  
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
   
 
   return (
     <>
-      <div className="slide-container">
-        <Slide>
-          {slideImages.map((slideImage, index) => (
-            <div key={index}>
-              <div
-                style={{
-                  ...divStyle,
-                  backgroundImage: `url(${slideImage.url})`,
-                }}
-              ></div>
+
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+        {/* <ol class="carousel-indicators">
+          <li data-target="#carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel" data-slide-to="1"></li>
+          <li data-target="#carousel" data-slide-to="2"></li>
+        </ol> */}
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+         
+         
+            <img src="./images/Imagefront.jpg" alt="Carousel Image" />
+            <div class="carousel-caption">
+              {/* <p class="animated fadeInRight">We Are Professional</p>
+              <h1 class="animated fadeInLeft">For Your Dream Project</h1> */}
+           
             </div>
-          ))}
-        </Slide>
+          </div>
 
-        {/* <h1 className="Featurespan">Feature Product</h1>
+          <div class="carousel-item">
+           
+            <img src="./images/Homeimg2.jpg"/>
+            <div class="carousel-caption">
+              {/* <p class="animated fadeInRight">Professional Builder</p>
+              <h1 class="animated fadeInLeft">We Build Your Home</h1> */}
+             
+            </div>
+          </div>
 
-        <Swiper
-          modules={[Navigation, Pagination, EffectCoverflow]}
-          spaceBetween={5}
-          slidesPerView={4}
-          navigation
+          <div class="carousel-item">
+            <img src="./images/imagefront1.png" alt="Carousel Image" />
+            <div class="carousel-caption">
+              {/* <p class="animated fadeInRight">We Are Trusted</p>
+              <h1 class="animated fadeInLeft">For Your Dream Home</h1> */}
+             
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="carousel-control-prev"
+          href="#carousel"
+          role="button"
+          data-slide="prev"
         >
-          {productData.map((data, index) => (
-            <SwiperSlide key={index}>
-              {" "}
-              <div className="products">
-                <div className="bike">
-                
-                  <Link to={`/SingleProduct/${data.id}`}>
-                    <img
-                      src={
-                        loginData.URL +
-                        "/staticfiles/Vehiclesimages/" +
-                        data.image
-                      }
-                      className=""
-                    />
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        
-        </Swiper> */}
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div className="slide-container">
+       
         <section className="latest top">
-          <div className="scontainer">
+          <div 
+  className="scontainer">
             <div className="font-head section-header text-center">
               <h2>Latest Popular Bike</h2>
             </div>
-            <Swiper
+            <Swiper data-aos="zoom-out"
+     data-aos-duration="2000"
               modules={[Navigation, Pagination, EffectCoverflow]}
-              spaceBetween={30}
-              slidesPerView={4}
+             
               navigation
               effect={"coverflow"}
               grabCursor={true}
               centeredSlides={true}
+           
               loop={true}
               coverflowEffect={{
                 rotate: 0,
@@ -229,8 +278,14 @@ const Home = () => {
                 depth: 100,
                 modifier: 2.5,
               }}
+              breakpoints={{
+             0:   {
+              spaceBetween:30,
+              slidesPerView:4,
+                }
+              }}
             >
-              {/* <div className="natak"> */}
+             
               {productData.map((data) => (
                 <SwiperSlide>
                   <div className="contents grid top">
@@ -246,15 +301,12 @@ const Home = () => {
                             className=""
                           />
                         </Link>
-                        {/* <div className="flex1">
-                      <label>50%</label>
-                      <i className="fas fa-heart"></i>
-                    </div> */}
+                      
                       </div>
 
                       <div className="details">
                         <h4>{data.productName}</h4>
-                        {/* <p>Fashion,twin disc</p> */}
+                       
                         <h3>
                           <span>Rs.{data.actualPrice}</span>
                         </h3>
@@ -271,70 +323,182 @@ const Home = () => {
             </Swiper>
           </div>
         </section>
-        {/* about section */}
-        <About />
-
-        {/* video section */}
-        {/* <!-- Video Start --> */}
-        {/* <div class="video wow fadeIn" data-wow-delay="0.1s"> */}
-        <video width="500" height="300" autoPlay muted loop>
-<source src={showroom} type="video1.mp4"></source>
+        <section   className="hidden" show-animate>
+        <div className="AboutUs">
+       
+                <div class="about wow fadeInUp" data-wow-delay="0.1s">
+        <div  class="container"  >
+          <div class="row align-items-center" data-aos="fade-up"
+     data-aos-duration="3000" >
+            <div class="col-lg-5 col-md-6">
+              <div class="about-img">
+              <div className="showroom-video">
+       
+        <video 
+src={showroom} type="showroomvideo.mp4" autoPlay loop muted>
 </video>  
-{/* </div> */}
-
-
-        {/* <div class="video wow fadeIn" data-wow-delay="0.1s">
-          <div class="container">
-            <button
-              type="button"
-              class="btn-play"
-              data-toggle="modal"
-              data-src="video1.mp4"
-              data-target="#videoModal"
-            >
-              <span></span>
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="modal fade"
-          id="videoModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe
-                    class="embed-responsive-item"
-                    src="../video/video1.mp4"
-                    // id="video"
-                    // allowscriptaccess="always"
-                    allow="autoplay"
-                  ></iframe>
-                </div>
+</div>
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="section-header text-left">
+                <h2>Welcome to Tirupati auto City</h2>
+                <h3>16 Years Experience</h3>
+              </div>
+              <div class="about-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
+                  scelerisque maximus. Aenean consectetur convallis porttitor.
+                  Aliquam interdum at lacus non blandit.
+                </p>
+                <p>
+                  
+                </p>
+             
               </div>
             </div>
           </div>
-        </div> */}
-        {/* <!-- Video End --> */}
+        </div>
+      </div>
 
+      <div class="about wow fadeInUp" data-wow-delay="0.1s">
+        <div  class="container" >
+          <div class="row align-items-center" >
+            <div class="col-lg-5 col-md-6" >
+              <div class="about-img">
+                <img src="./images/Sanyog .jpg" alt="Image" />
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="section-header text-left">
+              
+                <h2>Managing Director</h2>
+                <h3>Mr. Sanyog Parajuli</h3>
+              </div>
+              <div class="about-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
+                  scelerisque maximus. Aenean consectetur convallis porttitor.
+                  Aliquam interdum at lacus non blandit.
+                </p>
+                <p>
+                
+                </p>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
+          {/* award section */}
+         
+        </div>
+        <div className="section-header text-center">
+              {" "}
+              <h1 className="">Awards & Recognition</h1>
+            </div>
+        <div class="wrappeaward ">
+        <img src="./images/dad.jpg" className="dadimg" />
+        <img src="./images/atstage.jpg" className="groupimg" />
+        <img src="./images/best showroom.jpg" className="awardimg"/>
+        <img
+                      src="./images/groupawardimg.jpg"
+                      className="groupimg"
+                    />
+                     <img src="./images/momdad.jpg" className="" />
+        <img src="./images/bishnu.jpg" className="" />
         
+    </div>
+        
+
+        <div  class="service">` 
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Our Services</p>
+                        <h1>We Provide Services</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp"  >
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
+ data-aos-anchor-placement="top-center">
+  
+                                <div class="service-img">
+                                    <img src="./images/sales.jpg" alt="Image"/>
+                                    <div class="service-overlay">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Finance</h3>
+                                    <a class="btn" href="images/sales.jpg" data-lightbox="service">+</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
+ data-aos-anchor-placement="top-center">
+                                <div class="service-img">
+                                    <img src="./images/service-center.png" alt="Image"/>
+                                    <div class="service-overlay">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Spare parts & Servicing</h3>
+                                    <a class="btn" href="img/service-2.jpg" data-lightbox="service">+</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
+data-aos-anchor-placement="top-center" >
+                                <div class="service-img">
+                                    <img src="./images/exchnage.jpg" alt="Image"/>
+                                    <div class="service-overlay">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service-text">
+                                    <h3>Exchange</h3>
+                                    <a class="btn" href="./images/service-center.png" data-lightbox="service">+</a>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+           
+      </section>
+
+
+        {/* video section */}
+        {/* <!-- Video Start --> */}
+       {/* <div className="showroom-video">
+        <video 
+src={showroom} type="showroomvideo.mp4" autoPlay loop muted>
+</video>  
+</div> */}
 
         {/* Contact */}
         <div class="contact wow fadeInUp">
@@ -466,6 +630,12 @@ const Home = () => {
             />
           </div>
         </div>
+        <div
+      className={`back-to-top-button ${isVisible ? 'visible' : ''}`}
+      onClick={scrollToTop}
+    >
+      &uarr; 
+    </div>
       </div>
     </>
   );

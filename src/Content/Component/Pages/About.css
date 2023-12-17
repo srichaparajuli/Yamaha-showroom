@@ -1,8 +1,86 @@
-.AboutUs {
-    /* background: rgb(235, 223, 223)
-    ; */
+/* .about {
+    position: relative;
+    width: 100%;
+    padding: 35px 0;
 }
 
+.about .section-header {
+    margin-bottom: 30px;
+}
+
+.about .about-img {
+    position: relative;
+    height: 100%;
+
+}
+
+.about .about-img img {
+    width: 80%;
+    height:100%;
+    object-fit: cover;
+    border: 2px solid rgb(188, 175, 175);
+    border-radius:5px;
+}
+
+.about .about-text p {
+    font-size: 16px;
+}
+
+@media (max-width: 767.98px) {
+    .about .about-img {
+        margin-bottom: 10px;
+        height: auto;
+    }
+}
+ */
+
+ .about {
+    position: relative;
+    width: 100%;
+    padding: 35px 0;
+  
+}
+
+.about .section-header {
+    /* margin-bottom: 30px; */
+}
+
+.about .about-img {
+    position: relative;
+    height: 100%;
+}
+
+.about .about-img img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid rgb(188, 175, 175);
+    border-radius:5px;
+}
+
+.about .about-text p {
+    font-size: 18px;
+}
+.about .section-header h3 {
+    font-size: 26px;
+}
+
+
+
+
+
+@media (max-width: 767.98px) {
+    .about .about-img {
+        margin-bottom: 30px;
+        height: auto;
+    }
+}
+
+
+
+
+
+/* 
 .AboutFirst {
     display: flex;
     flex-direction: row;
@@ -22,38 +100,8 @@
 
 }
 
-/* .AboutTac {
-    margin: 90px;
-    font-size: 20px;
-} */
-
-/* .r15img {
-    height: 50vh;
-    margin-top: 10px;
-    border-radius: 20px;
-    border: 3px solid blue;
-    border-radius: 20px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-} */
-/* 
-.ceoimg {
-    height: 50vh;
-    margin-top: 30px;
-    border-radius: 20px;
-} */
-
-/* .TacImg {
-    margin: 30px;
-
-    width: 43%;
-
-    margin-top: 10px;
-    transition: 1s;
-
-} */
-
 .TacImg:hover {
-    /* transform: scale(1.1); */
+ 
     z-index: 2;
 }
 
@@ -61,6 +109,7 @@
 .AboutSecond {
     display: flex;
     flex-direction: row;
+  
 }
 
 .TacImg span {
@@ -76,13 +125,11 @@
     border-radius: 20px;
     margin-left: 150px;
     position: relative;
-    /* border: 3px solid blue; */
-    transition: 1s;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+   
 }
 
 .SanyogImg:hover {
-    /* transform: scale(1.1); */
+   
     z-index: 2;
 }
 
@@ -102,7 +149,7 @@
     border-radius: 20px;
     color: grey;
     font-size: 20px;
-}
+} */
 
 .AwardImages img {
     width: 90%;
@@ -120,11 +167,6 @@
     z-index: 2;
 }
 
-/* .awardimg {
-    border-radius: 10px;
-    margin-top: 10px;
-    height: 50vh;
-} */
 
 .awardspan {
 
@@ -234,6 +276,8 @@ margin-top: 0px;
     line-height: 1.5;
     color: black;
 margin-left: 300px;
+
+width: 70%;
 text-align: start;
 color: navy;
 }
@@ -256,6 +300,22 @@ color: navy;
     margin: 23px 0px;
     color: black;
 }
+
+.hidden .AboutUs
+{
+transform:translateX(0%) ;
+}
+
+.hidden.show-animate .AboutUs
+{
+transform:translateX(0%) ;
+}
+
+section .AboutUs{
+transition: 1s;
+}
+
+
 @media screen and (max-width:399px){
     .AwardImages img {
         width: 200%;
@@ -267,6 +327,10 @@ color: navy;
         display: block;
         margin: auto;
         background: #C6E0E4;
+    }
+    .about-swiper{
+     
+        display: block;
     }
 }
 
@@ -438,7 +502,7 @@ color: navy;
 
 
 /* services  */
-service {
+.service {
     position: relative;
     width: 100%;
     padding: 45px 0 15px 0;
@@ -530,14 +594,14 @@ service {
     position: relative;
     width: 100%;
     margin-bottom: 35px;
-    margin-top: 3em;
+    /* margin-top: 1em; */
   }
   
   .section-header p {
     color:  #186ca8;
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
   }
   
   .section-header h1 {
@@ -557,7 +621,7 @@ service {
     
 .service .service-item {
     position: relative;
-    width: 23em;
+    width: 100%;
 align-items: center;
     
     margin-bottom: 30px;

@@ -301,7 +301,7 @@ function Navbar() {
                       </div>
                       <div class="top-bar-text">
                         <h3>Call Us</h3>
-                        <p>+012 345 6789</p>
+                        <p>025-584853</p>
                       </div>
                     </div>
                   </div>

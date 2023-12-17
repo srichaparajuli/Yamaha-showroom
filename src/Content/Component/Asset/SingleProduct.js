@@ -146,7 +146,7 @@ function SingleProduct() {
     //getProductMainImage(0);
     getDimenssionData(id);
     getEngineData(id);
-    getBrakeData(id);
+    getBrakeData(id); 
     getProductDatabyId(id);
     getProductMainImage(0);
   }, [loginData]);
@@ -324,9 +324,9 @@ function SingleProduct() {
             </div>
             <div className="tab">
               <input type="radio" name="acc" id="acc3"></input>
-              {/* <Label for="acc3"> */}
+              <label for="acc3">
                 <h2>Brakes ,Wheels and Suspension</h2>
-              {/* </Label> */}
+              </label>
               {brakeValues.map((data, index) => (
                 <div className="Engine" key={index}>
                   <div className="specform">

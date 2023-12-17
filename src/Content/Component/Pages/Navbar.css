@@ -716,10 +716,12 @@ nav .sticky ul li a {
 @media (max-width: 991.98px) {
   .nav-bar .navbar {
     padding: 15px;
+    align-items: center;
   }
 
   .nav-bar a.nav-link {
-    padding: 5px;
+    padding: 10px;
+   
   }
 
   .nav-bar .dropdown-menu {
@@ -729,15 +731,14 @@ nav .sticky ul li a {
   .nav-bar .btn {
     display: none;
   }
+  .navbar-nav a{
+  display: block;
+  }
 }
 
 
 /*******************************/
-/******** Carousel CSS *********/
-
-
-/*******************************/
-/******* Page Header CSS *******/
+/******* contact us Page Header CSS *******/
 /*******************************/
 .page-header {
   position: relative;
@@ -819,229 +820,6 @@ nav .sticky ul li a {
     font-size: 18px;
   }
 }
-
-
-/*******************************/
-/******* Section Header ********/
-/*******************************/
-
-/*******************************/
-/********* Feature CSS *********/
-/*******************************/
-.feature {
-  position: relative;
-  margin-bottom: 45px;
-}
-
-.feature .col-md-12 {
-  background: #030f27;
-}
-
-.feature .col-md-12:nth-child(2n) {
-  color: #030f27;
-  background: #fdbe33;
-}
-
-.feature .feature-item {
-  min-height: 250px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.feature .feature-icon {
-  position: relative;
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feature .feature-icon::before {
-  position: absolute;
-  content: "";
-  width: 80px;
-  height: 80px;
-  top: -20px;
-  left: -10px;
-  border: 2px dotted #ffffff;
-  border-radius: 60px;
-  z-index: 1;
-}
-
-.feature .feature-icon::after {
-  position: absolute;
-  content: "";
-  width: 79px;
-  height: 79px;
-  top: -18px;
-  left: -9px;
-  background: #030f27;
-  border-radius: 60px;
-  z-index: 2;
-}
-
-.feature .col-md-12:nth-child(2n) .feature-icon::after {
-  background: #fdbe33;
-}
-
-.feature .feature-icon [class^="flaticon-"]::before {
-  position: relative;
-  margin: 0;
-  color: #fdbe33;
-  font-size: 60px;
-  line-height: 60px;
-  z-index: 3;
-}
-
-.feature .feature-text {
-  padding-left: 30px;
-}
-
-.feature .feature-text h3 {
-  margin: 0 0 10px 0;
-  color: #fdbe33;
-  font-size: 25px;
-  font-weight: 600;
-}
-
-.feature .feature-text p {
-  margin: 0;
-  color: #fdbe33;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.feature .col-md-12:nth-child(2n) [class^="flaticon-"]::before,
-.feature .col-md-12:nth-child(2n) h3,
-.feature .col-md-12:nth-child(2n) p {
-  color: #030f27;
-}
-
-
-/*******************************/
-/********** About CSS **********/
-/*******************************/
-.about {
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
-}
-
-.about .section-header {
-  margin-bottom: 30px;
-}
-
-.about .about-img {
-  position: relative;
-  height: 100%;
-}
-
-.about .about-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about .about-text p {
-  font-size: 16px;
-}
-
-.about .about-text a.btn {
-  position: relative;
-  margin-top: 15px;
-  padding: 15px 35px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  color: #030f27;
-  border-radius: 0;
-  background: #fdbe33;
-  transition: .3s;
-}
-
-.about .about-text a.btn:hover {
-  color: #fdbe33;
-  background: #030f27;
-}
-
-@media (max-width: 767.98px) {
-  .about .about-img {
-    margin-bottom: 30px;
-    height: auto;
-  }
-}
-
-
-/*******************************/
-/********** Fact CSS ***********/
-/*******************************/
-.fact {
-  position: relative;
-  width: 100%;
-  padding: 45px 0;
-}
-
-.fact .col-6 {
-  display: flex;
-  align-items: flex-start;
-}
-
-.fact .fact-icon {
-  position: relative;
-  margin: 7px 15px 0 15px;
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fact .fact-icon [class^="flaticon-"]::before {
-  margin: 0;
-  font-size: 60px;
-  line-height: 60px;
-  background-image: linear-gradient(#ffffff, #fdbe33);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.fact .fact-right .fact-icon [class^="flaticon-"]::before {
-  background-image: linear-gradient(#ffffff, #030f27);
-}
-
-.fact .fact-left,
-.fact .fact-right {
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-.fact .fact-text h2 {
-  font-size: 35px;
-  font-weight: 700;
-}
-
-.fact .fact-text p {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.fact .fact-left {
-  color: #fdbe33;
-  background: #030f27;
-}
-
-.fact .fact-right {
-  color: #030f27;
-  background: #fdbe33;
-}
-
-.fact .fact-left h2 {
-  color: #fdbe33;
-}
-
 
 
 /*******************************/

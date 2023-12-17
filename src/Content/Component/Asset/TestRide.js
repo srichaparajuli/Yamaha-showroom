@@ -120,7 +120,7 @@ function TestRide() {
     <div>
       <ToastContainer />
       <div class="testcontainer">
-      <div class="page-header">
+      <div class="page-header" data-aos="fade-down">
           <div class="container">
             <div class="row">
               <div class="col-12">
@@ -134,15 +134,8 @@ function TestRide() {
           </div>
         </div>
 
-        <div class="book">
-          {/* <div class="description">
-            <h1>
-              <strong>Book</strong> your Test Ride
-            </h1>
-            <div class="quote">
-              <img src="./images/Testridee.png" className="" />
-            </div>
-          </div> */}
+        {/* <div class="book">
+          
           <div class="form">
             <form>
               <div class="inpbox full">
@@ -228,7 +221,84 @@ function TestRide() {
               </button>
             </form>
           </div>
+        </div> */}
+
+<section class="containerr">
+  {/* <header>Registration Form</header> */}
+      <form action="#" class="form">
+      <div class="column">
+            <div class="select-box">
+            <select name="ProductId" onChange={handleChange}>
+                  <option value="0">Select vehicles</option>
+                  {productData.map((data, index) => (
+                    <option value={data.id}>{data.productName}</option>
+                  ))}
+                </select>
+            </div>
+            
+          </div>
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" 
+                  name="FullName"
+                  value={userValues.FullName}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.FullName}</p>
         </div>
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" placeholder="Enter email address"  name="EmailAddress"
+                  value={userValues.EmailAddress}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.EmailAddress}</p>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="text" placeholder="Enter phone number"  name="PhoneNumber"
+                  value={userValues.PhoneNumber}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.PhoneNumber}</p>
+          </div>
+          <div class="input-box">
+            <label>Date</label>
+            <input type="date"  placeholder="Date"
+                  name="Date"
+                  value={userValues.Date}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.Date}</p>
+          </div>
+          
+        </div>
+        <div class="column">
+        <div class="input-box">
+            <label>Address</label>
+            <input type="TEXT"  placeholder="Enter address"
+                  name="Address"
+                  value={userValues.Address}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.Address}</p>
+          </div>
+          <div class="input-box">
+            <label> Lisence Number</label>
+          <input type="text" placeholder="Enter your Lisence Number"  name="Lisence"
+                  value={userValues.Lisence}
+                  onChange={handleChange}
+                />
+                <p className="errortestride">{SignUpErrors.Lisence}</p>
+                </div>
+          </div>
+       
+       
+        <button role="button" onClick={handleSubmit}>Submit</button>
+      </form>
+    </section>
+
       </div>
     </div>
   );

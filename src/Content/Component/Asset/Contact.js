@@ -185,7 +185,7 @@ function Contact() {
       </div> */}
       <div class="wrapper">
         {/* <!-- Page Header Start --> */}
-        <div class="page-header">
+        <div class="page-header" data-aos="fade-down">
           <div class="container">
             <div class="row">
               <div class="col-12">

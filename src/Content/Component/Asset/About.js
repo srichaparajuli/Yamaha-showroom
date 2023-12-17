@@ -6,133 +6,136 @@ import "../Pages/About.css";
 import { Navigation, Pagination, EffectCoverflow } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
+// import showroom from "../video/video1.mp4";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function About() {
+
+  let sections = document.querySelector ('section');
+  window.onscroll=()=>{
+    sections.forEach(sec => {
+    let top=window.scrollY;
+    let offset=sec.offsetTop -150;
+    let height= sec.offsetHeight;
+if (top>=offset && top < offset + height){
+  sec.classList.add('show-animate');
+}
+else{
+  sec.classList.remove('show-animate');
+}
+
+
+  })
+  }
   return (
-    <div>
-      <section className="hidden">
-        <div className="AboutUs">
-          <div className="aboutimg">
-            <span className="Tachead">Tirupati Auto City</span>
-          </div>
-          <div className="AboutSecond">
-            <div className="image-section">
-              <img
-                src="./images/Aboutfirst.png"
-                alt="AwardImagesLogo"
-                className="r15img"
-              />
-            </div>
-            {/* <div class="contentsection-about"> */}
-            <div className="content-about">
-              <p>
-                {" "}
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
-            </div>
-            {/* </div> */}
-          </div>
-          <span className="Tachead"> Sanyog Parajuli,MD</span>
-          <div className="AboutSecond">
-            <div className="image-section">
-              <img src="./images/Sanyog .jpg" className="" />
-            </div>
-            <div className="content-about">
-              <p>
-                {" "}
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
+    <div>  
+      <section className="hidden" show-animate>
+        <div  className="AboutUs">
+        <div data-aos="fade-down" class="page-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h2>About Us</h2>
+              </div>
+              <div class="col-12">
+                <a href="">Home</a>
+                <a href="">About Us</a>
+              </div>
             </div>
           </div>
+        </div>
+         
+                <div class="about wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+          <div data-aos="fade-up"
+     data-aos-duration="3000"class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+              <div class="about-img">
+                <img src="./images/Aboutfirst.png" alt="Image" />
+              </div>
+            </div>
+            <div  class="col-lg-7 col-md-6">
+              <div class="section-header text-left">
+                <h2>Welcome to Tirupati auto City</h2>
+                <h3>16 Years Experience</h3>
+              </div>
+              <div class="about-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
+                  scelerisque maximus. Aenean consectetur convallis porttitor.
+                  Aliquam interdum at lacus non blandit.
+                </p>
+                <p>
+                  
+                </p>
+             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about wow fadeInUp" data-wow-delay="0.1s">
+        <div data-aos="fade-up"
+     data-aos-duration="3000" class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+              <div class="about-img">
+                <img src="./images/Sanyog .jpg" alt="Image" />
+              </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <div class="section-header text-left">
+              
+                <h2>Managing Director</h2>
+                <h3>Mr. Sanyog Parajuli</h3>
+              </div>
+              <div class="about-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
+                  vulputate. Aliquam metus tortor, auctor id gravida
+                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
+                  scelerisque maximus. Aenean consectetur convallis porttitor.
+                  Aliquam interdum at lacus non blandit.
+                </p>
+                <p>
+                
+                </p>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
           {/* award section */}
-          <div className="awardwhole">
-            <div className="section-header text-center">
+          <div className="section-header text-center">
               {" "}
-              <h1 className="">Award & Recognition</h1>
+              <h1 className="">Awards & Recognition</h1>
             </div>
-            {/* <span className="awardspan">Award & Recognition</span> */}
-
-            <Swiper
-              modules={[Navigation, Pagination, EffectCoverflow]}
-              spaceBetween={0}
-              slidesPerView={4}
-              slideActiveClass={1}
-              
-              navigation
-            >
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img src="./images/dad.jpg" className="dadimg" />
-                    {/* <span className="">Award & Recognition</span> */}
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img src="./images/atstage.jpg" className="groupimg" />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img
-                      src="./images/best showroom.jpg"
-                      className="awardimg"
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img
+            <div class="wrappeaward ">
+        <img src="./images/dad.jpg" className="dadimg" />
+        <img src="./images/atstage.jpg" className="groupimg" />
+        <img src="./images/best showroom.jpg" className="awardimg"/>
+        <img
                       src="./images/groupawardimg.jpg"
                       className="groupimg"
                     />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img src="./images/momdad.jpg" className="" />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="products">
-                  <div className="AwardImages">
-                    <img src="./images/bishnu.jpg" className="" />
-                  </div>
-                </div>
-              </SwiperSlide> 
-            </Swiper>
-          </div>
+                     <img src="./images/momdad.jpg" className="" />
+        <img src="./images/bishnu.jpg" className="" />
+        
+    </div>
         </div>
 
         <div class="service">` 
@@ -143,7 +146,8 @@ function About() {
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="service-item">
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="1000" data-aos-easing="ease-in-out"
+ data-aos-anchor-placement="top-center">
                                 <div class="service-img">
                                     <img src="./images/sales.jpg" alt="Image"/>
                                     <div class="service-overlay">
@@ -159,7 +163,8 @@ function About() {
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="service-item">
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="1000" data-aos-easing="ease-in-out"
+ data-aos-anchor-placement="top-center">
                                 <div class="service-img">
                                     <img src="./images/service-center.png" alt="Image"/>
                                     <div class="service-overlay">
@@ -176,7 +181,8 @@ function About() {
                         </div>
                         
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="service-item">
+                            <div class="service-item" data-aos="flip-left" data-aos-duration="1000" data-aos-easing="ease-in-out"
+ data-aos-anchor-placement="top-center">
                                 <div class="service-img">
                                     <img src="./images/exchnage.jpg" alt="Image"/>
                                     <div class="service-overlay">
@@ -195,7 +201,12 @@ function About() {
                     </div>
                 </div>
             </div>
+            
+           
       </section>
+      {/* <video width="100" height="300" autoPlay muted loop>
+<source src={showroom} type="video1.mp4"></source>
+</video>   */}
     </div>
   );
 }

@@ -61,12 +61,25 @@ function Motorcycle() {
 {/* <header style="background-image:url (./images/motorcycle.jpg);">
    <h1>MotorCycle</h1>
 </header> */}
-        <div className="Motorcycle-header">
+        {/* <div className="Motorcycle-header ">
           <img src="./images/motorcycle.jpg" />
           <label>MotorCycle</label>
-          <span>
+          < span>
             Don't limit yourself—have the courage to take on new challenges.
-          </span>
+          </ span>
+        </div> */}
+        <div class="page-header" data-aos="fade-down"> 
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h2>MotorCycle</h2>
+              </div>
+              <div class="col-12">
+                <a href="">Home</a>
+                <a href="">MotorCycle</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="custom-manage">
           <select name="category" onChange={handleChange}>
@@ -77,7 +90,7 @@ function Motorcycle() {
         </div>
         <div className="BikeTop">
           {productData.map((data, index) => (
-            <div className="product" key={index}>
+            <div className="product" key={index} data-aos="flip-right"  data-aos-duration="2000" >
               <div className="bikes">
                 <Link to={`/SingleProduct/${data.id}`}>
                   <img
@@ -90,6 +103,7 @@ function Motorcycle() {
                   />
                 </Link>
               </div>
+              
               <div className="namePrice">
                 <h3>{data.productName} </h3>
                 <span>Rs.{data.actualPrice}</span>
