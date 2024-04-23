@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Switch,
 } from "react-router-dom";
 
 import Navbar from "./Content/Component/Asset/Navbar";
@@ -16,11 +15,9 @@ import Contact from "./Content/Component/Asset/Contact";
 import Login from "./Content/Component/Asset/Login";
 import Footer from "./Content/Component/Asset/Footer";
 import Register from "./Content/Component/Asset/Register";
-import FormInput from "./Content/Component/Asset/FormInput";
 import Motorcycle from "./Content/Component/Asset/Motorcycle";
 import ForgetPassword from "./Content/Component/Asset/ForgetPassword";
 import SingleProduct from "./Content/Component/Asset/SingleProduct";
-// import Recoverypassword from "./Content/Component/Asset/Recoverypassword";
 import { LoginContext } from "./Context/LoginContext";
 import TestRide from "./Content/Component/Asset/TestRide";
 import BookNow from "./Content/Component/Asset/BookNow";
@@ -43,6 +40,7 @@ function App() {
   }, []);
   return (
     <div>
+      
       <Router>
         <LoginContext.Provider value={{ loginData, setLoginData }}>
           <Navbar />
@@ -54,7 +52,6 @@ function App() {
             <Route exact path="/Scooter" element={<Scooter />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/Register" element={<Register />} />
-            <Route exact path="/FormInput" element={<FormInput />} />
             <Route exact path="/ForgetPassword" element={<ForgetPassword />} />
             <Route
               exact

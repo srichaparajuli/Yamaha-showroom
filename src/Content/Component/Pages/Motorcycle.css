@@ -1,7 +1,11 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
 .Motorcycle-header {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
 .Motorcycle-header img {
@@ -21,10 +25,12 @@
     text-shadow: 10px 50px 100px brown;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
 }
 
 .Motorcycle-header span {
     color: rgb(10, 10, 10);
+    font-family: 'Poppins', sans-serif;
     position: absolute;
     right: 55%;
     top: 43%;
@@ -33,7 +39,7 @@
     text-align: center;
     font-size: 1rem;
     text-shadow: 10px 50px 100px brown;
-    font-family: 'Times New Roman',
+   
 }
 
 
@@ -41,6 +47,7 @@
     margin-left: 80%;
     border: none;
     text-decoration: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .custom-manage select {
@@ -48,32 +55,28 @@
     width: 90%;
     text-align: center;
     background: #005C97;
- 
+    font-family: 'Poppins', sans-serif;
     color: aliceblue;
     border-radius: 20px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+   
 }
 
 
 .BikeTop {
-   
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(350px ,1fr));
 }
-
-
-
 
 .product {
    
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     position: relative;
     background-color: var(--sectionBack);
-    width: 350px;
+    width: 320px;
     display: block;
     height: 90%;
     padding: 20px 20px 40px;
@@ -87,26 +90,27 @@
 
 
 .namePrice {
-  
     justify-content: space-between;
-    font-weight: bolder;
-    color: #2811f8;
- 
+    font-weight: 500;
+    color: #140972;
+    font-family: 'Poppins', sans-serif;
 }
 
 .namePrice h3 {
-   
+   font-size: 15px;
+   margin-top: 5%;
+   font-weight: bold;
+   color: gray;
+   font-family: 'Poppins', sans-serif;
 }
 
 
 .product p {
-    font-size: 18px;
     line-height: 25px; 
 }
 
 .bay {
     position: absolute;
-  
     right: 25px;
 }
 
@@ -114,21 +118,16 @@
   
     border-radius: 7px;
     border: none;
-    background-color: var(--textColor);
-    color: var(--sectionBack);
-    font-size: 15px;
+    font-size: 13px;
     text-transform: capitalize;
     cursor: pointer;
     transition: .5s;
     text-decoration: none;
-
     color: aliceblue;
-    font-weight: 600;
+    font-weight: 500;
     background: #005C97;
- 
-    background: -webkit-linear-gradient(to bottom, #363795, #005C97);
+    font-family: 'Poppins', sans-serif;
   
-    background: linear-gradient(to bottom, #363795, #005C97);
     
 }
 
@@ -174,28 +173,6 @@
         font-family: 'Times New Roman',
     }
 
-/*    
-
-    .custom-manage {
-        margin-left: 70%;
-        border: none;
-        text-decoration: none;
-    }
-
-    .custom-manage select {
-        height: 40px;
-        width: 90%;
-        text-align: center;
-        background: #005C97;
-        color: aliceblue;
-        display: block;
-        border-radius: 20px;
-        text-transform: uppercase;
-        font-weight: 600;
-        text-decoration: none;
-        margin-top: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-    } */
     .custom-manage {
         display: none;
      }
@@ -203,15 +180,14 @@
      .custom-manage select {
         display: none;    
      }
+     
 
 
 
 }
 
 @media screen and (max-width: 450px) {
-    .Motorcycle-header img {
-
-    }
+   
 
     .Motorcycle-header label {
         color: #021d67;
@@ -247,37 +223,20 @@
      .custom-manage select {
         display: none;    
      }
-    /* .custom-manage {
-        margin-left: 50%;
-        border: none;
-        text-decoration: none;
-        margin: 30px;
-    } */
-
-    
-    /* .custom-manage select {
-        height: 40px;
-        width: 100%;
-        text-align: center;
-        background: #005C97;
-        color: aliceblue;
-        border-radius: 20px;
-        text-transform: uppercase;
-        font-weight: 600;
-        text-decoration: none;
-        margin-top: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-    } */
 
     .product {
-      
+        width: auto;
+        margin: 15px;
        align-items: center;
     }
 }
 
 @media screen and (max-width: 375px) {
    
-
+    .BikeTop {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(250px ,1fr));
+    }
     .Motorcycle-header label {
         color: #021d67;
         position: absolute;
@@ -306,7 +265,6 @@
     .explore p{
         position: absolute;
         right: 40%;
-        /* font-size: 5rem; */
         top:55%;
         color: rgb(236, 233, 226);
         background: #000;
@@ -315,7 +273,6 @@
     .explore h1{
         color: #021d67;
         position: absolute;
-        /* right: 6%; */
         font-size: 2rem;
         top:40%;
     }
@@ -330,7 +287,23 @@
     }
 
     .product {
-    width: 100%;
-        margin-left: 0px;
+    width: auto;
+    margin: 15px;
     }
+    
+.bay {
+  
+    border-radius: 7px;
+    border: none;
+    font-size: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .5s;
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 400;
+    background: #005C97;
+    font-family: 'Poppins', sans-serif;
+}
+
 }

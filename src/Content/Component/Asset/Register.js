@@ -2,11 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../Pages/Register.css";
 import axios from "axios";
-// import OtpInput from "react18-input-otp";
 import OtpInput from "react-otp-input";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
-import { Link } from "react-router-dom";
 
 function Register() {
   const initialValues = {
@@ -33,11 +31,8 @@ function Register() {
   }, []);
 
   const OTPClick = async () => {
-    // e.preventDefault();
-    // setSignUpErrors(validate(userValues));
     setOTPStatus(true);
     setNotError(false);
-
     toast.success("OTP has been sent to your mail");
 
     var userData = {
@@ -160,9 +155,6 @@ function Register() {
                     placeholder="FullName"
                   />
                   <p className="form-errors">{SignUpErrors.Fullname}</p>
-                  {/* <span class="focus-border-19">
-                  <i></i>
-                </span> */}
                 </div>
 
                 <div className="col-19">
@@ -175,10 +167,6 @@ function Register() {
                     placeholder="Email"
                   />
                   <p className="form-errors">{SignUpErrors.Email}</p>
-
-                  {/* <span class="focus-border-19">
-                  <i></i>
-                </span> */}
                 </div>
               </div>
               <div className="content">
@@ -192,7 +180,7 @@ function Register() {
                     placeholder="PhoneNumber"
                   />
                   <p className="form-errors">{SignUpErrors.Phonenumber}</p>
-                  {/* <span class="focus-border-19"></span> */}
+    
                 </div>
 
                 <div class="col-19">
@@ -205,7 +193,7 @@ function Register() {
                     placeholder="Zone,District,City"
                   />
                   <p className="form-errors">{SignUpErrors.Address}</p>
-                  {/* <span class="focus-border-19"></span> */}
+              
                 </div>
               </div>
 
@@ -220,7 +208,7 @@ function Register() {
                     placeholder="Password"
                   />
                   <p className="form-errors">{SignUpErrors.Password}</p>
-                  {/* <span class="focus-border-19"></span> */}
+                
                 </div>
 
                 <div class="col-19">
@@ -233,7 +221,7 @@ function Register() {
                     placeholder="Confirm Password"
                   />
                   <p className="form-errors">{SignUpErrors.ConfirmPassword}</p>
-                  {/* <span class="focus-border-19"></span> */}
+        
                 </div>
               </div>
 

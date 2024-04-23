@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     width: 280px;
-    /* height: 100px; */
 }
 
 .forminput{
@@ -10,8 +9,6 @@
     margin: 0px 0px;
     border-radius: 5px;
     border: 1px solid gray;
-    /* display: flex;
-    flex-direction: row; */
 }
 
 .formlabel{

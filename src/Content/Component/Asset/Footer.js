@@ -1,18 +1,14 @@
 import React from "react";
 import "../Pages/footer.css";
 import { BsFacebook } from "react-icons/bs";
-
 import { ImLocation } from "react-icons/im";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-// import { IoMdGitNetwork } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { FaTiktok } from "react-icons/fa";
 function Footer() {
   return (
     <div>
       <div className="footer">
-
         <div class="footer-container">
           <div class="rows">
             <div class="footer-col">

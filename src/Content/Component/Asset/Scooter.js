@@ -7,7 +7,7 @@ import sortBy from "lodash/sortBy";
 
 function Scooter() {
   const [productData, setproductData] = useState([]);
-  const { loginData, setLoginData } = useContext(LoginContext);
+  const { loginData} = useContext(LoginContext);
 
   const getProductData = async () => {
     const result = await axios.get(

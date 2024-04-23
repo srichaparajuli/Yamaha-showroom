@@ -57,17 +57,6 @@ function Motorcycle() {
   return (
     <>
       <div>
-
-{/* <header style="background-image:url (./images/motorcycle.jpg);">
-   <h1>MotorCycle</h1>
-</header> */}
-        {/* <div className="Motorcycle-header ">
-          <img src="./images/motorcycle.jpg" />
-          <label>MotorCycle</label>
-          < span>
-            Don't limit yourself—have the courage to take on new challenges.
-          </ span>
-        </div> */}
         <div class="page-header" data-aos="fade-down"> 
           <div class="container">
             <div class="row">

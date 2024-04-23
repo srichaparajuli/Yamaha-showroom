@@ -1,10 +1,6 @@
 import myKey from "./khaltikey";
 import axios from "axios";
-import { useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
-var shippingData = localStorage.getItem("shippingDetails");
 
 let config = {
   publicKey: myKey.publicTestKey,
@@ -13,8 +9,6 @@ let config = {
   productUrl: "http://localhost:3000",
   eventHandler: {
     onSuccess(payload) {
-      // hit merchant api for initiating verfication
-
       let data = {
         token: payload.token,
         amount: payload.amount,
@@ -36,7 +30,6 @@ let config = {
           );
 
           if ((result.data = 1)) {
-            // navigate("/Motorcycle");
             toast.success("Thank you for using KHALTI");
             localStorage.removeItem("shippingDetails");
           } else {
@@ -45,14 +38,11 @@ let config = {
         });
     },
 
-    // onError handler is optional
     onError(error) {
-      // handle errors
       console.log(error);
     },
     onClose() {
       console.log("widget is closing");
-      //localStorage.removeItem("shippingDetails");
     },
   },
   paymentPreference: [

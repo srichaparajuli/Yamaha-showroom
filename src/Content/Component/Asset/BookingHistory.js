@@ -2,16 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Pages/BookingHistory.css";
 import { AiFillDelete } from "react-icons/ai";
-import { IoInformationCircle } from "react-icons/io5";
-
-import { HiUserCircle } from "react-icons/hi";
 import { LoginContext } from "../../../Context/LoginContext";
 import axios from "axios";
 
 function BookingHistory() {
   const [userData, setuserData] = useState([]);
-  const [userDetails, setuserDetails] = useState([]);
-  const { loginData, setLoginData } = useContext(LoginContext);
+  const [setuserDetails] = useState([]);
+  const { loginData } = useContext(LoginContext);
 
   const getUserData = async () => {
     const result = await axios.get(
@@ -85,9 +82,6 @@ function BookingHistory() {
                         <td>{data.phoneNumber}</td>
                         <td>{data.productName}</td>
                         <td>{data.days}</td>
-
-                        {/* <td>{data.bookStatus}</td> */}
-
                         <td>
                           <p class="status delivered">{data.paymentType}</p>
                         </td>
@@ -115,9 +109,6 @@ function BookingHistory() {
                         <td>{data.phoneNumber}</td>
                         <td>{data.productName}</td>
                         <td>{data.days}</td>
-
-                        {/* <td>{data.bookStatus}</td> */}
-
                         <td>
                           <p class="status delivered">{data.paymentType}</p>
                         </td>

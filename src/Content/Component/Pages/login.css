@@ -6,7 +6,6 @@
   place-items: center;
   display: grid;
   background-image: url(/public/images/LoginBackgroundd\ .jpg);
-  /* overflow-x: hidden; */
   display: flex;
   flex-direction: row;
   width: 97%;
@@ -20,7 +19,6 @@
   position: absolute;
   top: 15%;
   left: 60%;
-  /* transform: translate(-50%, -50%); */
   width: 380px;
   background: white;
   border-radius: 10px;
@@ -39,7 +37,6 @@
 }
 
 form .txt_field {
-  /* position: relative; */
   border-bottom: 2px solid rebeccapurple;
   margin: 10px 0;
 }
@@ -57,11 +54,8 @@ form .txt_field {
 }
 
 .txt_field label {
-  /* position: absolute; */
-  /* top: 50%; */
   left: 5px;
   color: rebeccapurple;
-  /* transform: translateY(-50%); */
   font-size: 14px;
   pointer-events: none;
   transition: .5s;
@@ -83,11 +77,6 @@ form .txt_field {
   top: -5px;
   color: rebeccapurple;
 }
-
-/* .txt_field input:focus~label::before,
-.txt_field input:valid~label::before {
-  width: 100%;
-} */
 
 .pass {
   margin: -5px 0 20px 5px;

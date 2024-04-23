@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../Pages/Contact.css";
 import { ImLocation } from "react-icons/im";
 import { FaPhoneSquareAlt } from "react-icons/fa";
@@ -31,21 +31,15 @@ function Contact() {
   };
 
   useEffect(() => {
-    // console.log(loginErrors);
     if (Object.keys(loginErrors).length === 0 && isSubmit) {
-      // console.log(userValues);
       postContactData();
     }
   }, [loginErrors, userValues, isSubmit]);
+
   const validate = (values) => {
     const errors = {};
     const emailPattern =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const numberRegex =
-      /^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/;
-    // Validate numbers
-    // Returns true
-    // numberRegex.test('Hey12122022x');
 
     if (!values.fullname) {
       errors.fullname = "FullName is required!";
@@ -82,109 +76,8 @@ function Contact() {
   return (
     <div>
       <ToastContainer />
-      {/* <div className="Contactus">
-        <label className="Fistline">C O N T A C T - U S</label>
 
-        <label className="Secondline">
-          <span1>We Would Love </span1> <span>To Hear From You</span>
-        </label>
-
-        <div className="Flex-Cotainer">
-          <div className="xyz">
-            <div className="OfficeAddress">
-              {" "}
-              <ImLocation />
-              Office Address
-            </div>
-            <label className="Address">Itahari-6, Sunsari,Nepal</label>
-
-            <div className="OfficePhonenumber">
-              {" "}
-              <FaPhoneSquareAlt /> Our Phone Number
-            </div>
-            <label className="Address">025-587053,9852048232</label>
-
-            <div className="OfficeInfo">
-              {" "}
-              <MdEmail />
-              For General Enquiry and information
-            </div>
-            <label className="Address">Yamahaitahari@gmail.com</label>
-          </div>
-
-          <div className="Contact" id="contact">
-            <form onSubmit={handleSubmit}>
-              <div className="ContactContainer">
-              
-                <h2>Get in Touch</h2>
-                <div className="formInfo">
-                  <input
-                    type="text"
-                    name="fullname"
-                    placeholder="Enter your FullName"
-                    value={userValues.fullname}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <p className="errorcontact">{loginErrors.fullname}</p>
-
-                <div className="formInfo">
-                  <input
-                    type="text"
-                    placeholder="Enter your PhoneNumber"
-                    name="phoneNumber"
-                    value={userValues.phoneNumber}
-                    onChange={handleChange}
-                  />
-                </div>
-                <p className="errorcontact">{loginErrors.phoneNumber}</p>
-
-                <div className="formInfo">
-                  <input
-                    type="email"
-                    placeholder="Enter your E-mail"
-                    name="email"
-                    value={userValues.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                <p className="errorcontact">{loginErrors.email}</p>
-
-                <div className="formInfo">
-                  <textarea
-                    className="textarea"
-                    rows="4"
-                    cols="24"
-                    placeholder="Write a Message"
-                    name="message"
-                    value={userValues.message}
-                    onChange={handleChange}
-                  />
-                </div>
-                <p className="errorcontact">{loginErrors.message}</p>
-
-                <button type="submit" className="button-86" role="button">
-                  Submit
-                </button>
-                
-              </div>
-            </form>
-          </div>
-        </div>
-        <iframe
-          width="1000"
-          height="300"
-          id="gmap_canvas"
-          src="https://maps.google.com/maps?q=Tirupati%20auto%20city%20,nepal&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-        />
-      </div> */}
       <div class="wrapper">
-        {/* <!-- Page Header Start --> */}
         <div class="page-header" data-aos="fade-down">
           <div class="container">
             <div class="row">
@@ -198,9 +91,7 @@ function Contact() {
             </div>
           </div>
         </div>
-        {/* <!-- Page Header End --> */}
-
-        {/* <!-- Contact Start --> */}
+      
         <div class="contact wow fadeInUp">
           <div class="container">
             <div class="contact-font section-header text-center">
@@ -319,7 +210,7 @@ function Contact() {
               </div>
             </div>
             <iframe
-              width="1120"
+              width=""
               height="300"
               id="gmap_canvas"
               src="https://maps.google.com/maps?q=Tirupati%20auto%20city%20,nepal&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -330,7 +221,6 @@ function Contact() {
             />
           </div>
         </div>
-        {/* <!-- Contact End --> */}
       </div>
     </div>
   );

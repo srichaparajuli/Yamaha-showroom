@@ -8,8 +8,6 @@ function FonePay() {
           <div className="form-fonepay">
             <div class="containers">
               <div class="right">
-                {/* <h3>PAYMENT</h3> */}
-
                 <form>
                   <p>Accepted Mobile Banking</p>
                   Account Number

@@ -58,14 +58,12 @@ function ForgetPassword() {
     if (otp != oTPPin) {
       toast.error("OTP not matched");
     } else {
-      // console.log(userValues);
       const result = await axios.post(
         "https://localhost:7166/api/ForgetPassword/UserForgetPassword",
         userValues
       );
 
-      // console.log(result);
-
+      
       if (result.data[0].result == "OK") {
         toast.success("Your password has been Reset Successfully");
         setIsSubmit(false);
@@ -127,7 +125,7 @@ function ForgetPassword() {
       <ToastContainer />
       <div className="Forgetpassword">
         <div className="Forgetpasword-image">
-          <img src="./images/Forgot password.png" className="" />
+          <img src="./images/Forgot password.png" />
         </div>
         <form>
           <div className="Forgetpassword-box">
@@ -135,7 +133,6 @@ function ForgetPassword() {
             <p>Please enter the account that you want to reset the password.</p>
             <input
               type="text"
-              // required
               placeholder="Enter your Email Address"
               name="Email"
               value={userValues.Email}
@@ -156,10 +153,9 @@ function ForgetPassword() {
                     value={otp}
                   />
                 </div>
-                <div class="Recoverycontainer">
+                <div className="Recoverycontainer">
                   <input
                     type="text"
-                    // required
                     placeholder="Enter Your Password"
                     name="Password"
                     value={userValues.Password}
@@ -168,7 +164,6 @@ function ForgetPassword() {
                   <p className="form-errors">{SignUpErrors.Password}</p>
                   <input
                     type="password"
-                    // required
                     id="psw"
                     placeholder="Enter Your Confirm Password"
                     name="ConfirmPassword"
@@ -176,11 +171,8 @@ function ForgetPassword() {
                     onChange={handleChange}
                   />
                   <p className="form-errors">{SignUpErrors.ConfirmPassword}</p>
-
-                  {/* <input type="submit" value="Submit"/> */}
-                  {/* </form> */}
                 </div>
-                <button class="button-25" role="button" onClick={handleSubmit}>
+                <button className="button-25" role="button" onClick={handleSubmit}>
                   Submit
                 </button>
               </>

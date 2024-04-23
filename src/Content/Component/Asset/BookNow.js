@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "../Pages/BookNow.css";
-import { Link } from "react-router-dom";
 import Khalti from "../Khalti/Khalti";
 import { useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,7 +9,7 @@ import { LoginContext } from "../../../Context/LoginContext";
 import { useNavigate } from "react-router-dom";
 
 function BookNow() {
-  const { loginData, setLoginData } = useContext(LoginContext);
+  const { loginData } = useContext(LoginContext);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -26,7 +25,7 @@ function BookNow() {
     amount: 200,
   };
 
-  const [productData, setproductData] = useState([]);
+  const [setproductData] = useState([]);
   const [loginErrors, setloginErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [userValues, setuserValues] = useState(initialValues);
@@ -68,7 +67,6 @@ function BookNow() {
   const handleChangeCheckbox = (e) => {
     setCheckbox(!checkbox);
   };
-  
 
   useEffect(() => {
     if (Object.keys(loginErrors).length === 0 && isSubmit) {
@@ -76,8 +74,6 @@ function BookNow() {
     }
     getProductData(id);
   }, [isSubmit, loginData, loginErrors]);
-
-
 
   const getProductData = async (id) => {
     const result = await axios.get(
@@ -140,7 +136,7 @@ function BookNow() {
               Online <strong>Booking FORM</strong>
             </h1>
             <div class="quote">
-              <img src="/images/Booking.png" className="" />
+              <img src="/images/Booking.png" />
             </div>
             {checkbox ? (
               <>
@@ -281,7 +277,6 @@ function BookNow() {
             </div>
           </div>
 
-          {/* </div> */}
         </div>
       </div>
     </div>

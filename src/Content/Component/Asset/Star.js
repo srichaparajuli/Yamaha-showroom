@@ -24,7 +24,6 @@ const Star = ({ stars }) => {
     <Wrapper>
       <div className="icon-style">
         {ratingStar}
-        {/* <p>({reviews} reviews)</p> */}
       </div>
     </Wrapper>
   );

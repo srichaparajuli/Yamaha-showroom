@@ -3,23 +3,17 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { LoginContext } from "../../../Context/LoginContext";
 import { Link } from "react-router-dom";
-import About from "./About";
-import { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper";
+import { Navigation, Pagination, EffectCoverflow } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css/free-mode";
-
-// import "bootstrap/dist/css/bootstrap.min.css"
-import { FreeMode } from "swiper";
 import "../Pages/Home.css";
-import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { ImLocation } from "react-icons/im";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import "react-toastify/dist/ReactToastify.css";
-import { toast, ToastContainer } from "react-toastify";
-//import videoPlayer from "react-video-js-player";
+import { toast } from "react-toastify";
 import showroom from "../video/showroomvideo.mp4";
 
 const divStyle = {
@@ -38,16 +32,11 @@ const slideImages = [
   {
     url: "images/Homeimg2.jpg",
   },
-
-  // {
-  //   url: "images/Homeimg.jpg",
-
-  // },
 ];
 
 const Home = () => {
   const [productData, setproductData] = useState([]);
-  const { loginData, setLoginData } = useContext(LoginContext);
+  const { loginData } = useContext(LoginContext);
 
   const getProductData = async () => {
     const result = await axios.get(
@@ -71,7 +60,6 @@ const Home = () => {
     getProductData();
   }, [loginData]);
 
-  // contact api
   const initialValues = {
     fullname: "",
     phoneNumber: "",
@@ -95,9 +83,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // console.log(loginErrors);
     if (Object.keys(loginErrors).length === 0 && isSubmit) {
-      // console.log(userValues);
       postContactData();
     }
   }, [loginErrors, userValues, isSubmit]);
@@ -105,11 +91,6 @@ const Home = () => {
     const errors = {};
     const emailPattern =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const numberRegex =
-      /^(?:-(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))|(?:0|(?:[1-9](?:\d{0,2}(?:,\d{3})+|\d*))))(?:.\d+|)$/;
-    // Validate numbers
-    // Returns true
-    // numberRegex.test('Hey12122022x');
 
     if (!values.fullname) {
       errors.fullname = "FullName is required!";
@@ -143,94 +124,67 @@ const Home = () => {
     }
   };
 
-  
-
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     var video1;
     var btnPlay = document.getElementsByClassName("btn-play");
     for (var i = 0; i < btnPlay.length; i++) {
-      btnPlay[i].addEventListener("click", function() {
+      btnPlay[i].addEventListener("click", function () {
         video1 = this.dataset.src;
       });
     }
-    console.log( video1);
-  
+    console.log(video1);
+
     var videoModal = document.getElementById("videoModal");
     var video = document.getElementById("video");
-    videoModal.addEventListener("shown.bs.modal", function() {
-      video.src =  video1 + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0";
+    videoModal.addEventListener("shown.bs.modal", function () {
+      video.src = video1 + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0";
     });
-  
-    videoModal.addEventListener("hide.bs.modal", function() {
-      video.src =  video1;
+
+    videoModal.addEventListener("hide.bs.modal", function () {
+      video.src = video1;
     });
   });
 
+  const [isVisible, setIsVisible] = useState(false);
 
- 
-    const [isVisible, setIsVisible] = useState(false);
-  
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
-  
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    };
-  
-    useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-  
+  }, []);
 
   return (
     <>
-
-  <div id="carousel" class="carousel slide" data-ride="carousel">
-        {/* <ol class="carousel-indicators">
-          <li data-target="#carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel" data-slide-to="1"></li>
-          <li data-target="#carousel" data-slide-to="2"></li>
-        </ol> */}
+      <div id="carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-         
-         
-            <img src="./images/Imagefront.jpg" alt="Carousel Image" />
-            <div class="carousel-caption">
-              {/* <p class="animated fadeInRight">We Are Professional</p>
-              <h1 class="animated fadeInLeft">For Your Dream Project</h1> */}
-           
-            </div>
-          </div>
-
-          <div class="carousel-item">
-           
-            <img src="./images/Homeimg2.jpg"/>
-            <div class="carousel-caption">
-              {/* <p class="animated fadeInRight">Professional Builder</p>
-              <h1 class="animated fadeInLeft">We Build Your Home</h1> */}
-             
-            </div>
-          </div>
-
-          <div class="carousel-item">
             <img src="./images/imagefront1.png" alt="Carousel Image" />
-            <div class="carousel-caption">
-              {/* <p class="animated fadeInRight">We Are Trusted</p>
-              <h1 class="animated fadeInLeft">For Your Dream Home</h1> */}
-             
-            </div>
+            <div class="carousel-caption"></div>
+          </div>
+          <div class="carousel-item ">
+            <img src="./images/Imagefront.jpg" alt="Carousel Image" />
+            <div class="carousel-caption"></div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="./images/Homeimg2.jpg" />
+            <div class="carousel-caption"></div>
           </div>
         </div>
 
@@ -255,22 +209,19 @@ const Home = () => {
       </div>
 
       <div className="slide-container">
-       
         <section className="latest top">
-          <div 
-  className="scontainer">
+          <div className="scontainer">
             <div className="font-head section-header text-center">
-              <h2>Latest Popular Bike</h2>
+              <p>Latest Popular Bike</p>
             </div>
-            <Swiper data-aos="zoom-out"
-     data-aos-duration="2000"
+            <Swiper
+              data-aos="zoom-in"
+              data-aos-duration="1000"
               modules={[Navigation, Pagination, EffectCoverflow]}
-             
               navigation
               effect={"coverflow"}
               grabCursor={true}
               centeredSlides={true}
-           
               loop={true}
               coverflowEffect={{
                 rotate: 0,
@@ -279,13 +230,12 @@ const Home = () => {
                 modifier: 2.5,
               }}
               breakpoints={{
-             0:   {
-              spaceBetween:30,
-              slidesPerView:4,
-                }
+                0: {
+                  spaceBetween: 30,
+                  slidesPerView: 4,
+                },
               }}
             >
-             
               {productData.map((data) => (
                 <SwiperSlide>
                   <div className="contents grid top">
@@ -301,21 +251,17 @@ const Home = () => {
                             className=""
                           />
                         </Link>
-                      
                       </div>
 
                       <div className="details">
-                        <h4>{data.productName}</h4>
-                       
-                        <h3>
-                          <span>Rs.{data.actualPrice}</span>
-                        </h3>
-                        <button className="homebtn">
-                          <Link to={`/SingleProduct/${data.id}`}>
-                            View details
-                          </Link>
-                        </button>
+                        <p>{data.productName}</p>
+                        <span>Rs.{data.actualPrice}</span>
                       </div>
+                      <button className="homebtn">
+                        <Link to={`/SingleProduct/${data.id}`}>
+                          <span>View details</span>
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -323,184 +269,204 @@ const Home = () => {
             </Swiper>
           </div>
         </section>
-        <section   className="hidden" show-animate>
-        <div className="AboutUs">
-       
-                <div class="about wow fadeInUp" data-wow-delay="0.1s">
-        <div  class="container"  >
-          <div class="row align-items-center" data-aos="fade-up"
-     data-aos-duration="3000" >
-            <div class="col-lg-5 col-md-6">
-              <div class="about-img">
-              <div className="showroom-video">
-       
-        <video 
-src={showroom} type="showroomvideo.mp4" autoPlay loop muted>
-</video>  
-</div>
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="section-header text-left">
-                <h2>Welcome to Tirupati auto City</h2>
-                <h3>16 Years Experience</h3>
-              </div>
-              <div class="about-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                  vulputate. Aliquam metus tortor, auctor id gravida
-                  condimentum, viverra quis sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                  vulputate. Aliquam metus tortor, auctor id gravida
-                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
-                  scelerisque maximus. Aenean consectetur convallis porttitor.
-                  Aliquam interdum at lacus non blandit.
-                </p>
-                <p>
-                  
-                </p>
-             
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="about wow fadeInUp" data-wow-delay="0.1s">
-        <div  class="container" >
-          <div class="row align-items-center" >
-            <div class="col-lg-5 col-md-6" >
-              <div class="about-img">
-                <img src="./images/Sanyog .jpg" alt="Image" />
-              </div>
-            </div>
-            <div class="col-lg-7 col-md-6">
-              <div class="section-header text-left">
-              
-                <h2>Managing Director</h2>
-                <h3>Mr. Sanyog Parajuli</h3>
-              </div>
-              <div class="about-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                  vulputate. Aliquam metus tortor, auctor id gravida
-                  condimentum, viverra quis sem.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec pretium mi. Curabitur facilisis ornare velit non
-                  vulputate. Aliquam metus tortor, auctor id gravida
-                  condimentum, viverra quis sem. Curabitur non nisl nec nisi
-                  scelerisque maximus. Aenean consectetur convallis porttitor.
-                  Aliquam interdum at lacus non blandit.
-                </p>
-                <p>
-                
-                </p>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-          {/* award section */}
-         
-        </div>
-        <div className="section-header text-center">
-              {" "}
-              <h1 className="">Awards & Recognition</h1>
-            </div>
-        <div class="wrappeaward ">
-        <img src="./images/dad.jpg" className="dadimg" />
-        <img src="./images/atstage.jpg" className="groupimg" />
-        <img src="./images/best showroom.jpg" className="awardimg"/>
-        <img
-                      src="./images/groupawardimg.jpg"
-                      className="groupimg"
-                    />
-                     <img src="./images/momdad.jpg" className="" />
-        <img src="./images/bishnu.jpg" className="" />
-        
-    </div>
-        
-
-        <div  class="service">` 
-                <div class="container">
-                    <div class="section-header text-center">
-                        <p>Our Services</p>
-                        <h1>We Provide Services</h1>
+        <section className="hidden" show-animate>
+          <div className="AboutUs ">
+            <div className="about wow fadeInUp" data-wow-delay="0.1s">
+              <div className="container">
+                <div
+                  className="row align-items-center  "
+                >
+                  <div className="col-lg-6 col-md-6 ">
+                    <div className="about-img">
+                      <div className="showroom-video">
+                        <video
+                          src={showroom}
+                          type="showroomvideo.mp4"
+                          autoPlay
+                          loop
+                          muted
+                        ></video>{" "}
+                      </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 wow fadeInUp"  >
-                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
- data-aos-anchor-placement="top-center">
-  
-                                <div class="service-img">
-                                    <img src="./images/sales.jpg" alt="Image"/>
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Finance</h3>
-                                    <a class="btn" href="images/sales.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
- data-aos-anchor-placement="top-center">
-                                <div class="service-img">
-                                    <img src="./images/service-center.png" alt="Image"/>
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Spare parts & Servicing</h3>
-                                    <a class="btn" href="img/service-2.jpg" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="service-item" data-aos="flip-left" data-aos-duration="2000" data-aos-easing="ease-in-out"
-data-aos-anchor-placement="top-center" >
-                                <div class="service-img">
-                                    <img src="./images/exchnage.jpg" alt="Image"/>
-                                    <div class="service-overlay">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service-text">
-                                    <h3>Exchange</h3>
-                                    <a class="btn" href="./images/service-center.png" data-lightbox="service">+</a>
-                                </div>
-                            </div>
-                        </div>
-                      
+                  </div>
+                  <div class="col-lg col-md-6 pl-5">
+                    <div class="section-header ">
+                      <h2 className=".text-[#030f27]">Welcome to Tirupati Auto City</h2>
+                      <h3>16 Years Of Experience</h3>
                     </div>
+                    <div class="about-text">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec pretium mi. Curabitur facilisis ornare
+                        velit non vulputate. Aliquam metus tortor, auctor id
+                        gravida condimentum, viverra quis sem.Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Phasellus nec
+                        pretium mi. Curabitur facilisis ornare velit non
+                        vulputate. Aliquam metus tortor, auctor id gravida
+                        condimentum, viverra quis sem. Curabitur non nisl nec
+                        nisi scelerisque maximus. Aenean consectetur convallis
+                        porttitor. Aliquam interdum at lacus non blandit.
+                      </p>
+                      <p></p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-           
-      </section>
 
+            <div class="about wow fadeInUp mt-lg-5" data-wow-delay="0.1s">
+              <div class="container">
+                <div class="row align-items-center ">
+                  <div class="col-lg-5 col-md-6 ">
+                    <div class="about-img">
+                      <img src="./images/Sanyog .jpg" alt="Image" />
+                    </div>
+                  </div>
+                  <div className="col-lg-6 col-md-4 ">
+                    <div className="section-header text-left ">
+                      <h2>Managing Director</h2>
+                      <h3>Mr. Sanyog Parajuli</h3>
+                    </div>
+                    <div class="about-text">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus nec pretium mi. Curabitur facilisis ornare
+                        velit non vulputate. Aliquam metus tortor, auctor id
+                        gravida condimentum, viverra quis sem. Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Phasellus nec
+                        pretium mi. Curabitur facilisis ornare velit non
+                        vulputate. Aliquam metus tortor, auctor id gravida
+                        condimentum, viverra quis sem. Curabitur non nisl nec
+                        nisi scelerisque maximus. Aenean consectetur convallis
+                        porttitor. Aliquam interdum at lacus non blandit.
+                      </p>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        {/* video section */}
-        {/* <!-- Video Start --> */}
-       {/* <div className="showroom-video">
-        <video 
-src={showroom} type="showroomvideo.mp4" autoPlay loop muted>
-</video>  
-</div> */}
+         
+          </div>
+          <div className="section-header text-center">
+            {" "}
+            <h1 className=" ">Awards & Recognition</h1>
+          </div>
+          <div className="wrappeaward ">
+            <img src="./images/dad.jpg" className="dadimg" />
+            <img src="./images/atstage.jpg" className="groupimg" />
+            <img src="./images/best showroom.jpg" className="awardimg" />
+            <img src="./images/groupawardimg - Copy.jpg" className="groupimg" />
+            <img src="./images/momdad.jpg" className="" />
+            <img src="./images/bishnu.jpg" className="" />
+          </div>
 
-        {/* Contact */}
+          <div className="service">
+            `
+            <div class="container">
+              <div className="section-headerr text-center">
+                <p>Our Services</p>
+                <h4>We provide the best services</h4>
+              </div>
+              <div className="row">
+                <div className="col-lg-4 col-md-6 wow fadeInUp">
+                  <div
+                    className="service-item"
+                   
+                  >
+                    <div class="service-img">
+                      <img src="./images/sales.jpg" alt="Image" />
+                      <div class="service-overlay">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Phasellus nec pretium mi. Curabitur facilisis
+                          ornare velit non vulputate. Aliquam metus tortor,
+                          auctor id gravida condimentum, viverra quis sem.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="service-text">
+                      <h3>Finance</h3>
+                      <a
+                        class="btn"
+                        href="images/sales.jpg"
+                        data-lightbox="service"
+                      >
+                        +
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-4 col-md-6 wow fadeInUp"
+                  data-wow-delay="0.2s"
+                >
+                  <div
+                    class="service-item"
+                  
+                  >
+                    <div class="service-img">
+                      <img src="./images/service-center.png" alt="Image" />
+                      <div class="service-overlay">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Phasellus nec pretium mi. Curabitur facilisis
+                          ornare velit non vulputate. Aliquam metus tortor,
+                          auctor id gravida condimentum, viverra quis sem.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="service-text">
+                      <h3>Spare parts & Servicing</h3>
+                      <a
+                        class="btn"
+                        href="img/service-2.jpg"
+                        data-lightbox="service"
+                      >
+                        +
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="col-lg-4 col-md-6 wow fadeInUp"
+                  data-wow-delay="0.3s"
+                >
+                  <div
+                    class="service-item"
+                   
+                  >
+                    <div class="service-img">
+                      <img src="./images/exchnage.jpg" alt="Image" />
+                      <div class="service-overlay">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Phasellus nec pretium mi. Curabitur facilisis
+                          ornare velit non vulputate. Aliquam metus tortor,
+                          auctor id gravida condimentum, viverra quis sem.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="service-text">
+                      <h3>Exchange</h3>
+                      <a
+                        class="btn"
+                        href="./images/service-center.png"
+                        data-lightbox="service"
+                      >
+                        +
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div class="contact wow fadeInUp">
           <div class="container">
             <div class="contact-font section-header text-center">
@@ -631,11 +597,11 @@ src={showroom} type="showroomvideo.mp4" autoPlay loop muted>
           </div>
         </div>
         <div
-      className={`back-to-top-button ${isVisible ? 'visible' : ''}`}
-      onClick={scrollToTop}
-    >
-      &uarr; 
-    </div>
+          className={`back-to-top-button ${isVisible ? "visible" : ""}`}
+          onClick={scrollToTop}
+        >
+          &uarr;
+        </div>
       </div>
     </>
   );

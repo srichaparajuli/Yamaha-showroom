@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../Pages/login.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LoginContext } from "../../../Context/LoginContext";
@@ -12,7 +11,7 @@ function Login() {
   const [userValues, setuserValues] = useState(initialValues);
   const [loginErrors, setloginErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const { loginData, setLoginData } = useContext(LoginContext);
+  const { setLoginData } = useContext(LoginContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,7 +26,6 @@ function Login() {
   };
 
   useEffect(() => {
-    // console.log(loginErrors);
     if (Object.keys(loginErrors).length === 0 && isSubmit) {
       postLoginData();
     }
@@ -42,7 +40,7 @@ function Login() {
 
     if (!values.Password) {
       errors.Password = "Password is required";
-    }else if (values.Password.length < 6) {
+    } else if (values.Password.length < 6) {
       errors.Password = "Password must be more than 4 characters";
     } else if (values.Password.length > 10) {
       errors.Password = "Password cannot exceed more than 10 characters";
@@ -74,13 +72,11 @@ function Login() {
 
   return (
     <div>
-    <ToastContainer />
+      <ToastContainer />
       <div className="Login">
         <div className="center">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
-            {/* <form method="post"> */}
-
             <div class="txt_field">
               <label>PhoneNumber</label>
 
@@ -90,7 +86,7 @@ function Login() {
                 value={userValues.PhoneNumber}
                 onChange={handleChange}
               />
-              {/* <span></span> */}
+
               <p className="errorlgin">{loginErrors.PhoneNumber}</p>
             </div>
 
@@ -102,7 +98,7 @@ function Login() {
                 value={userValues.Password}
                 onChange={handleChange}
               />
-              {/* <span></span> */}
+
               <p className="errorlgin">{loginErrors.Password}</p>
             </div>
 
@@ -117,7 +113,7 @@ function Login() {
           </form>
         </div>
       </div>
-      </div>
+    </div>
   );
 }
 

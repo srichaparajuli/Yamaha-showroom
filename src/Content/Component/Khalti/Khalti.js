@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import KhaltiCheckout from "khalti-checkout-web";
 import config from "./khaltiConfig";
 
-
 export default function Khalti(props) {
   let checkout = new KhaltiCheckout(config);
 
@@ -18,16 +17,11 @@ export default function Khalti(props) {
   const [shippingData, setShippingData] = useState();
 
   useEffect(() => {
-   // localStorage.removeItem("shippingDetails");
     setShippingData(props.shippingData);
-    //console.log(props.shippingData);
     localStorage.setItem("shippingDetails", JSON.stringify(props.shippingData));
-    //console.log(localStorage.getItem("shippingDetails"))
   }, []);
 
   const handleClick = () => {
-   
-
     checkout.show({ amount: shippingData.amount * 100 });
   };
 
